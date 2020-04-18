@@ -48,25 +48,30 @@ describe( "Game", () => {
   } );
 
   describe( ".frame", () => {
-    it( "should give you the current frame scores after the first score", () => {
-      game.addScore( 5 );
+    const FrameDouble;
+    beforeEach( () => {
+      FrameDouble = function Frame() {
+        this.addScore = () => {};
+        this.isComplete = () => {};
+        this.score = () => {};
+      };
 
-      expect( game.frame( 0 ).score() ).toEqual( { score1: 5, score2: undefined, total: 5 } );
+      game = new Game( FrameDouble );
     } );
 
-    it( "should give you the current frame scores after the second score", () => {
+    it( "should call the score method of the frame", () => {
+      spyOn( FrameDouble, "score" );
       game.addScore( 5 );
-      game.addScore( 2 );
 
-      expect( game.frame( 0 ).score() ).toEqual( { score1: 5, score2: 2, total: 7 } );
+      expect(FrameDouble.score).toHaveBeenCalled();
     } );
 
     it( "should start a new frame when the current frame is complete", () => {
       game.addScore( 5 );
       game.addScore( 2 );
 
-      expect( game.frame( 1 ).score() )
-        .toEqual( { score1: undefined, score2: undefined, total: undefined } );
+      expect(game._currentFrame).toEqual(1);
+      expect(game._frames.length).toEqual(2);
     } );
   } );
 } );
