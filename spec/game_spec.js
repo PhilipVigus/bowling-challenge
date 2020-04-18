@@ -30,10 +30,11 @@ describe( "Game", () => {
 
       describe( "spares", () => {
         it( "should give you the correct score when you get a spare", () => {
+          game = new Game();
           game.addScore( 2 );
           game.addScore( 8 );
           game.addScore( 4 );
-
+          console.log(game);
           expect( game.currentScore() ).toEqual( 18 );
         } );
       } );
