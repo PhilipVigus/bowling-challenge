@@ -75,5 +75,13 @@ describe( "Frame", () => {
 
       expect( frame.score().total ).toEqual( 18 );
     } );
+
+    it( "decrements bonusesToAdd by 1", () => {
+      frame.addScore( 5 );
+      frame.addScore( 5 );
+      frame.addBonusScore( 8 );
+
+      expect( frame.bonusesToAdd ).toEqual( 0 );
+    } );
   } );
 } );

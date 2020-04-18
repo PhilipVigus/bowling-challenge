@@ -28,4 +28,5 @@ Frame.prototype.isComplete = function isComplete() {
 
 Frame.prototype.addBonusScore = function addBonusScore( score ) {
   this._total += score;
+  this.bonusesToAdd -= 1;
 };
