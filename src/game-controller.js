@@ -6,6 +6,8 @@ $( document ).ready( () => {
   $( "#input-score-button" ).click( () => {
     const newScore = $( "#input-score" ).val();
     game.addScore( newScore );
-    $( "#frame-1" ).text( game.frame( 1 ).score().total );
+    for ( let i = 0; i < game.framesCompleted() + 1; i += 1 ) {
+      $( `#frame-${i}` ).text( game.frame( i ).score().total );
+    }
   } );
 } );
