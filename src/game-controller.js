@@ -9,5 +9,6 @@ $( document ).ready( () => {
     for ( let i = 0; i < game.framesCompleted() + 1; i += 1 ) {
       $( `#frame-${i}` ).text( game.frame( i ).score().total );
     }
+    console.log(game._frames)
   } );
 } );
