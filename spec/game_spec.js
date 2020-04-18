@@ -14,10 +14,6 @@ describe( "Game", () => {
   } );
 
   describe( ".currentScore", () => {
-    it( "should allow you to access the current score", () => {
-      expect( game.currentScore ).toBeDefined();
-    } );
-
     it( "should set the current score to zero on creation", () => {
       expect( game.currentScore() ).toEqual( 0 );
     } );
@@ -30,6 +26,16 @@ describe( "Game", () => {
         };
 
         game = new Game( FrameDouble );
+      } );
+
+      describe( "spares", () => {
+        it( "should give you the correct score when you get a spare", () => {
+          game.addScore( 2 );
+          game.addScore( 8 );
+          game.addScore( 4 );
+
+          expect( game.currentScore() ).toEqual( 18 );
+        } );
       } );
 
       it( "should give the correct score when you add the first score", () => {
