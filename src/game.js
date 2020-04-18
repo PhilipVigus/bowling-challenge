@@ -2,9 +2,10 @@
 
 /* eslint-disable no-underscore-dangle */
 
-function Game() {
+function Game( frameFunc = Frame ) {
+  this._frameFunc = frameFunc;
   this._currentScore = 0;
-  this._frames = [ new Frame() ];
+  this._frames = [ new this._frameFunc() ];
   this._currentFrame = 0;
 }
 
@@ -13,7 +14,7 @@ Game.prototype.addScore = function addScore( score ) {
   this._currentScore += score;
 
   if ( this._frames[ this._currentFrame ].isComplete() ) {
-    this._frames.push( new Frame() );
+    this._frames.push( new this._frameFunc() );
     this._currentFrame += 1;
   }
 };
