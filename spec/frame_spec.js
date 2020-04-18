@@ -51,4 +51,10 @@ describe( "Frame", () => {
   it( "tells you a frame with no scores is incomplete", () => {
     expect( frame.isComplete() ).toEqual( false );
   } );
+
+  it( "tells you a frame with one score is incomplete", () => {
+    frame.addScore( 2 );
+
+    expect( frame.isComplete() ).toEqual( false );
+  } );
 } );
