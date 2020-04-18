@@ -2,6 +2,7 @@
 
 /* eslint-disable no-underscore-dangle */
 function Frame() {
+  this.bonusesToAdd = 0;
 }
 
 Frame.prototype.score = function score() {
@@ -15,6 +16,9 @@ Frame.prototype.addScore = function addScore( score ) {
   } else if ( this._score2 === undefined ) {
     this._score2 = score;
     this._total += score;
+    if ( this._total === 10 ) {
+      this.bonusesToAdd = 1;
+    }
   }
 };
 

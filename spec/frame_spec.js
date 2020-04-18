@@ -24,6 +24,13 @@ describe( "Frame", () => {
 
       expect( frame.score().score2 ).toEqual( 3 );
     } );
+
+    it( "should calculate one bonus to add if it is a spare", () => {
+      frame.addScore( 4 );
+      frame.addScore( 6 );
+
+      expect( frame.bonusesToAdd ).toEqual( 1 );
+    } );
   } );
 
   describe( ".total", () => {
@@ -41,20 +48,22 @@ describe( "Frame", () => {
     } );
   } );
 
-  it( "tells you when the frame is complete", () => {
-    frame.addScore( 2 );
-    frame.addScore( 4 );
+  describe( ".isComplete", () => {
+    it( "tells you when the frame is complete", () => {
+      frame.addScore( 2 );
+      frame.addScore( 4 );
 
-    expect( frame.isComplete() ).toEqual( true );
-  } );
+      expect( frame.isComplete() ).toEqual( true );
+    } );
 
-  it( "tells you a frame with no scores is incomplete", () => {
-    expect( frame.isComplete() ).toEqual( false );
-  } );
+    it( "tells you a frame with no scores is incomplete", () => {
+      expect( frame.isComplete() ).toEqual( false );
+    } );
 
-  it( "tells you a frame with one score is incomplete", () => {
-    frame.addScore( 2 );
+    it( "tells you a frame with one score is incomplete", () => {
+      frame.addScore( 2 );
 
-    expect( frame.isComplete() ).toEqual( false );
+      expect( frame.isComplete() ).toEqual( false );
+    } );
   } );
 } );
