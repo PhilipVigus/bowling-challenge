@@ -9,7 +9,9 @@ function Game( frameFunc = Frame ) {
   this._currentFrame = 0;
 }
 
-Game.prototype.addScore = function addScore( score ) {
+Game.prototype.addScore = function addScore( scoreString ) {
+  const score = parseInt( scoreString, 10 );
+
   this._frames[ this._currentFrame ].addScore( score );
   this._currentScore += score;
 
@@ -25,4 +27,8 @@ Game.prototype.currentScore = function currentScore() {
 
 Game.prototype.frame = function frame( number ) {
   return this._frames[ number ];
+};
+
+Game.prototype.framesCompleted = function framesCompleted() {
+  return this._currentFrame;
 };
