@@ -27,6 +27,10 @@ Frame.prototype.isComplete = function isComplete() {
 };
 
 Frame.prototype.addBonusScore = function addBonusScore( score ) {
+  if ( this.bonusesToAdd === 0 ) {
+    throw new Error( "unable to add bonus - no bonuses to add to frame" );
+  }
+
   this._total += score;
   this.bonusesToAdd -= 1;
 };

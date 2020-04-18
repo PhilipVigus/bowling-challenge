@@ -83,5 +83,9 @@ describe( "Frame", () => {
 
       expect( frame.bonusesToAdd ).toEqual( 0 );
     } );
+
+    it( "throws an error if there are no bonuses to add", () => {
+      expect( () => frame.addBonusScore( 3 ) ).toThrow( new Error( "unable to add bonus - no bonuses to add to frame" ) );
+    } );
   } );
 } );
