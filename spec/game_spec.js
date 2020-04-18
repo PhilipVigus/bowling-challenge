@@ -28,6 +28,21 @@ describe( "Game", () => {
         game = new Game( FrameDouble );
       } );
 
+      describe( "normal frames", () => {
+        it( "should give the correct score when you add the first score", () => {
+          game.addScore( 5 );
+
+          expect( game.currentScore() ).toEqual( 5 );
+        } );
+
+        it( "should give the correct score when you add the second score", () => {
+          game.addScore( 5 );
+          game.addScore( 2 );
+
+          expect( game.currentScore() ).toEqual( 7 );
+        } );
+      } );
+
       describe( "spares", () => {
         it( "should give you the correct score when you get a spare", () => {
           game = new Game();
@@ -39,17 +54,15 @@ describe( "Game", () => {
         } );
       } );
 
-      it( "should give the correct score when you add the first score", () => {
-        game.addScore( 5 );
+      describe( "strikes", () => {
+        it( "should give you the correct score when you get a strike", () => {
+          game = new Game();
+          game.addScore( 10 );
+          game.addScore( 5 );
+          game.addScore( 4 );
 
-        expect( game.currentScore() ).toEqual( 5 );
-      } );
-
-      it( "should give the correct score when you add the second score", () => {
-        game.addScore( 5 );
-        game.addScore( 2 );
-
-        expect( game.currentScore() ).toEqual( 7 );
+          expect( game.currentScore() ).toEqual( 28 );
+        } );
       } );
     } );
   } );
