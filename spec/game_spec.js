@@ -34,7 +34,7 @@ describe( "Game", () => {
           game.addScore( 2 );
           game.addScore( 8 );
           game.addScore( 4 );
-          console.log(game);
+
           expect( game.currentScore() ).toEqual( 18 );
         } );
       } );

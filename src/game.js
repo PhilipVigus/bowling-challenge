@@ -39,9 +39,8 @@ Game.prototype._handleBonusScores = function _addBonusScores( score ) {
     }
   } );
 
-  this._framesNeedingBonuses = this._framesNeedingBonuses.filter( ( frame ) => {
-    return frame.bonusesToAdd > 0;
-  } );
+  this._framesNeedingBonuses = this._framesNeedingBonuses
+    .filter( ( frame ) => { return frame.bonusesToAdd > 0; } );
 };
 
 Game.prototype._handleCompleteGame = function _handleCompleteGame() {
