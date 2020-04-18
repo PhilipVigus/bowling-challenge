@@ -16,7 +16,7 @@ Game.prototype.addScore = function addScore( scoreString ) {
   this._currentScore += score;
 
   this._handleBonusScores( score );
-  this._handleCompleteGame();
+  this._handleCompleteFrame();
 };
 
 Game.prototype.currentScore = function currentScore() {
@@ -43,7 +43,7 @@ Game.prototype._handleBonusScores = function _addBonusScores( score ) {
     .filter( ( frame ) => { return frame.bonusesToAdd > 0; } );
 };
 
-Game.prototype._handleCompleteGame = function _handleCompleteGame() {
+Game.prototype._handleCompleteFrame = function _handleCompleteGame() {
   if ( this._frames[ this._currentFrame ].isComplete() ) {
     if ( this._frames[ this._currentFrame ].bonusesToAdd > 0 ) {
       this._framesNeedingBonuses.push( this._frames[ this._currentFrame ] );
