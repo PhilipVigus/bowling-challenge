@@ -18,3 +18,7 @@ Frame.prototype.addScore = function addScore( scoreString ) {
     this._total += score;
   }
 };
+
+Frame.prototype.isComplete = function isComplete() {
+  return true;
+};

@@ -40,4 +40,11 @@ describe( "Frame", () => {
       expect( frame.score().total ).toEqual( 7 );
     } );
   } );
+
+  it( "tells you when the frame is complete", () => {
+    frame.addScore( 2 );
+    frame.addScore( 4 );
+
+    expect( frame.isComplete() ).toEqual( true );
+  } );
 } );
