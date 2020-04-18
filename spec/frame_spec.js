@@ -47,4 +47,8 @@ describe( "Frame", () => {
 
     expect( frame.isComplete() ).toEqual( true );
   } );
+
+  it( "tells you a frame with no scores is incomplete", () => {
+    expect( frame.isComplete() ).toEqual( false );
+  } );
 } );

@@ -20,5 +20,8 @@ Frame.prototype.addScore = function addScore( scoreString ) {
 };
 
 Frame.prototype.isComplete = function isComplete() {
+  if ( this._score1 === undefined ) {
+    return false;
+  }
   return true;
 };
