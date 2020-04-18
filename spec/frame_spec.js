@@ -66,4 +66,14 @@ describe( "Frame", () => {
       expect( frame.isComplete() ).toEqual( false );
     } );
   } );
+
+  describe( ".addBonusScore", () => {
+    it( "adds the bonus to the total score", () => {
+      frame.addScore( 5 );
+      frame.addScore( 5 );
+      frame.addBonusScore( 8 );
+
+      expect( frame.score().total ).toEqual( 18 );
+    } );
+  } );
 } );

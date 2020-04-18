@@ -25,3 +25,7 @@ Frame.prototype.addScore = function addScore( score ) {
 Frame.prototype.isComplete = function isComplete() {
   return this._score1 !== undefined && this._score2 !== undefined;
 };
+
+Frame.prototype.addBonusScore = function addBonusScore( score ) {
+  this._total += score;
+};
