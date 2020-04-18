@@ -47,31 +47,17 @@ describe( "Game", () => {
     } );
   } );
 
+  describe( ".framesCompleted", () => {
+    it( "should return 0 when the game first starts", () => {
+      expect( game.framesCompleted() ).toEqual( 0 );
+    } );
+  } );
+
   describe( ".frame", () => {
-    const FrameDouble;
-    beforeEach( () => {
-      FrameDouble = function Frame() {
-        this.addScore = () => {};
-        this.isComplete = () => {};
-        this.score = () => {};
-      };
+    it( "should return a frame", () => {
+      game = new Game();
 
-      game = new Game( FrameDouble );
-    } );
-
-    it( "should call the score method of the frame", () => {
-      spyOn( FrameDouble, "score" );
-      game.addScore( 5 );
-
-      expect(FrameDouble.score).toHaveBeenCalled();
-    } );
-
-    it( "should start a new frame when the current frame is complete", () => {
-      game.addScore( 5 );
-      game.addScore( 2 );
-
-      expect(game._currentFrame).toEqual(1);
-      expect(game._frames.length).toEqual(2);
+      expect( game.frame( 0 ) ).toEqual( jasmine.any( Frame ) );
     } );
   } );
 } );
