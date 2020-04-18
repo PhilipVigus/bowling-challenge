@@ -65,6 +65,12 @@ describe( "Frame", () => {
 
       expect( frame.isComplete() ).toEqual( false );
     } );
+
+    it( "tells you a frame with a strike is complete", () => {
+      frame.addScore( 10 );
+
+      expect( frame.isComplete() ).toEqual( true );
+    } );
   } );
 
   describe( ".addBonusScore", () => {

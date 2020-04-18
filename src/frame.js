@@ -23,7 +23,10 @@ Frame.prototype.addScore = function addScore( score ) {
 };
 
 Frame.prototype.isComplete = function isComplete() {
-  return this._score1 !== undefined && this._score2 !== undefined;
+  const bothBallsBowled = this._score1 !== undefined && this._score2 !== undefined;
+  const isStrike = this._score1 === 10;
+
+  return bothBallsBowled || isStrike;
 };
 
 Frame.prototype.addBonusScore = function addBonusScore( score ) {
