@@ -22,17 +22,28 @@ describe( "Game", () => {
       expect( game.currentScore() ).toEqual( 0 );
     } );
 
-    it( "should give the correct score when you add the first score", () => {
-      game.addScore( 5 );
+    describe( "when adding scores", () => {
+      beforeEach( () => {
+        const FrameDouble = function Frame() {
+          this.addScore = () => {};
+          this.isComplete = () => {};
+        };
 
-      expect( game.currentScore() ).toEqual( 5 );
-    } );
+        game = new Game( FrameDouble );
+      } );
 
-    it( "should give the correct score when you add the second score", () => {
-      game.addScore( 5 );
-      game.addScore( 2 );
+      it( "should give the correct score when you add the first score", () => {
+        game.addScore( 5 );
 
-      expect( game.currentScore() ).toEqual( 7 );
+        expect( game.currentScore() ).toEqual( 5 );
+      } );
+
+      it( "should give the correct score when you add the second score", () => {
+        game.addScore( 5 );
+        game.addScore( 2 );
+
+        expect( game.currentScore() ).toEqual( 7 );
+      } );
     } );
   } );
 
