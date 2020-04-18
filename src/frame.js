@@ -13,6 +13,9 @@ Frame.prototype.addScore = function addScore( score ) {
   if ( this._score1 === undefined ) {
     this._score1 = score;
     this._total = score;
+    if ( this._total === 10 ) {
+      this.bonusesToAdd = 2;
+    }
   } else if ( this._score2 === undefined ) {
     this._score2 = score;
     this._total += score;

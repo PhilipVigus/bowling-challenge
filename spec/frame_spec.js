@@ -31,6 +31,12 @@ describe( "Frame", () => {
 
       expect( frame.bonusesToAdd ).toEqual( 1 );
     } );
+
+    it( "should calcuate two bonuses to add if it is a strike", () => {
+      frame.addScore( 10 );
+
+      expect( frame.bonusesToAdd ).toEqual( 2 );
+    } );
   } );
 
   describe( ".total", () => {
